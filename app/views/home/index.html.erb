@@ -1,0 +1,43 @@
+<div class="container-xxl mt-4">
+  <h1 class="mb-4">
+    Welcome to XDividends 
+  </h1>
+  <div class="alert alert-info login-prompt">
+    <h4 class="alert_heading">
+      Track Multiple Portfolios!
+    </h4>
+    <p>
+      With XDividends, you can manage and track multiple dividend portfolios. Create separate portfolios for different investment strategies, goals, or accounts.
+    </p>
+    <hr>
+    <p class="mb-0">
+      To view detailed statistics and manage your portfolios, please 
+      <%= link_to "log in", root_path, class: "alert-link"%>
+      or 
+      <%= link_to "sign up", root_path, class: "alert-link"%>
+      for a free account.
+    </p>
+  </div>
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

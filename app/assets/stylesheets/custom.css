@@ -1,0 +1,13 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #ef233c !important;
+}
+
+.login-prompt {
+  background-color: #edf2f4;
+  border-left: 5px solid #ef233c;
+}
