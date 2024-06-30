@@ -19,7 +19,10 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: vladimir
+<<<<<<< HEAD
   password: <%= ENV['DATABASE_PASSWORD'] %>
+=======
+>>>>>>> origin/main
 
 development:
   <<: *default
