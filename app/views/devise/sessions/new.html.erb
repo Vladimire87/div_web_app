@@ -19,50 +19,41 @@
     </p>
   </div>
 </div>
-<%= link_to 'Add user', '#',  {:remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#loginModal', class: 'nav-link'}  %>
-<h2>Log in</h2>
+<%= link_to "hi", nil, class: "test btn-red"%>
 <%= render "devise/shared/links" %>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
-  Launch demo modal
-</button>
 <!-- Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
-        <div class="field">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
-        </div>
-        <% if devise_mapping.rememberable? %>
-          <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
-        <% end %>
-        <div class="actions">
-          <%= f.submit "Log in" %>
-        </div>
-      <% end %>
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="loginModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="loginModalLabel">Log in</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field mb-3">
+            <%= f.label :email, class: "form-label" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-lg" %>
+          </div>
+          <div class="field mb-3">
+            <%= f.label :password, class: "form-label" %>
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control form-control-lg" %>
+          </div>
+          <% if devise_mapping.rememberable? %>
+            <div class="field mb-3 form-check">
+              <%= f.check_box :remember_me, class: "form-check-input" %>
+              <%= f.label :remember_me, class: "form-check-label" %>
+            </div>
+          <% end %>
+          <div class="d-grid">
+            <%= f.submit "Log in", class: "btn btn-primary btn-lg btn-red btn-block" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+<!-- Modal -->
 <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
