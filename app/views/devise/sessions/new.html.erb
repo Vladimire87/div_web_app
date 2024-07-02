@@ -1,0 +1,83 @@
+<div class="container-xxl mt-4">
+  <h1 class="mb-4">
+    Welcome to XDividends 
+  </h1>
+  <div class="alert alert-info login-prompt">
+    <h4 class="alert_heading">
+      Track Multiple Portfolios!
+    </h4>
+    <p>
+      With XDividends, you can manage and track multiple dividend portfolios. Create separate portfolios for different investment strategies, goals, or accounts.
+    </p>
+    <hr>
+    <p class="mb-0">
+      To view detailed statistics and manage your portfolios, please 
+      <%= link_to "log in", new_user_session_path, { :remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#loginModal', class: "alert-link" }%>
+      or 
+      <%= link_to "sign up", new_user_registration_path, { :remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#signupModal', class: "alert-link" }%>
+      for a free account.
+    </p>
+  </div>
+</div>
+<%= link_to 'Add user', '#',  {:remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#loginModal', class: 'nav-link'}  %>
+<h2>Log in</h2>
+<%= render "devise/shared/links" %>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+  Launch demo modal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+        <div class="actions">
+          <%= f.submit "Log in" %>
+        </div>
+      <% end %>
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="loginModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= render "shared/new_registration" %>
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="loginModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
