@@ -14,61 +14,8 @@
       To view detailed statistics and manage your portfolios, please 
       <%= link_to "log in", new_user_session_path, { :remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#loginModal', class: "alert-link" }%>
       or 
-      <%= link_to "sign up", new_user_registration_path, { :remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#signupModal', class: "alert-link" }%>
+      <%= link_to "sign up", new_user_registration_path, class: "alert-link" %>
       for a free account.
     </p>
-  </div>
-</div>
-<%= link_to "hi", nil, class: "test btn-red"%>
-<%= render "devise/shared/links" %>
-<!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="loginModalLabel">Log in</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="field mb-3">
-            <%= f.label :email, class: "form-label" %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-lg" %>
-          </div>
-          <div class="field mb-3">
-            <%= f.label :password, class: "form-label" %>
-            <%= f.password_field :password, autocomplete: "current-password", class: "form-control form-control-lg" %>
-          </div>
-          <% if devise_mapping.rememberable? %>
-            <div class="field mb-3 form-check">
-              <%= f.check_box :remember_me, class: "form-check-input" %>
-              <%= f.label :remember_me, class: "form-check-label" %>
-            </div>
-          <% end %>
-          <div class="d-grid">
-            <%= f.submit "Log in", class: "btn btn-primary btn-lg btn-red btn-block" %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <%= render "shared/new_registration" %>
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="loginModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
   </div>
 </div>
