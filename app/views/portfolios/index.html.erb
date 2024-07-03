@@ -3,17 +3,23 @@
     <h2>
       Your Dividend Portfolios
     </h2>
-    <%= link_to "New portfolio", new_portfolio_path, class: "btn btn-primary btn-lg btn-red" %>
+    <%= link_to "Create New portfolio", new_portfolio_path, class: "btn btn-primary btn-lg btn-red" %>
+  </div>
+  <div class="mt-5">
+    <div class="row">
+      <%= render "portfolios/card" %>
+      <div class="col-md-4 mb-4">
+        card
+      </div>
+      <div class="col-md-4 mb-4">
+        card
+      </div>
+      <div class="col-md-4 mb-4">
+        card
+      </div>
+      <div class="col-md-4 mb-4">
+        card
+      </div>
+    </div>
   </div>
 </div>
-<p style="color: green"><%= notice %></p>
-<h1>Portfolios</h1>
-<div id="portfolios">
-  <% @portfolios.each do |portfolio| %>
-    <%= render portfolio %>
-    <p>
-      <%= link_to "Show this portfolio", portfolio %>
-    </p>
-  <% end %>
-</div>
-<%= link_to "New portfolio", new_portfolio_path %>
