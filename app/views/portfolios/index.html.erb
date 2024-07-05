@@ -1,24 +1,77 @@
 <div class="container-xxl mt-5">
-  <div class=" d-flex justify-content-between">
-    <h2>
-      Your Dividend Portfolios
-    </h2>
-    <%= link_to "Create New portfolio", new_portfolio_path, class: "btn btn-primary btn-lg btn-red" %>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h2"><i class="bi bi-briefcase"></i> Your Portfolios</h1>
+    <a href="https://websim.ai/portfolios/create" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Create New Portfolio</a>
   </div>
-  <div class="mt-5">
-    <div class="row">
-      <%= render "portfolios/card" %>
-      <div class="col-md-4 mb-4">
-        card
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card portfolio-card">
+        <div class="card-body">
+          <h5 class="card-title">Growth Dividend Portfolio</h5>
+          <p class="card-text">A portfolio focused on stocks with strong dividend growth potential.</p>
+          <div class="stats-row mb-3">
+            <div><i class="bi bi-piggy-bank"></i> Total Value: $57,186.75</div>
+            <div><i class="bi bi-cash-stack"></i> Annual Dividend: $1,715.60</div>
+            <div><i class="bi bi-percent"></i> Yield on Cost: 3.9%</div>
+          </div>
+          <a href="https://websim.ai/portfolios/growth" class="btn btn-primary">View Portfolio</a>
+        </div>
       </div>
-      <div class="col-md-4 mb-4">
-        card
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card portfolio-card">
+        <div class="card-body">
+          <h5 class="card-title">High Yield Portfolio</h5>
+          <p class="card-text">A portfolio targeting stocks with above-average dividend yields.</p>
+          <div class="stats-row mb-3">
+            <div><i class="bi bi-piggy-bank"></i> Total Value: $42,350.00</div>
+            <div><i class="bi bi-cash-stack"></i> Annual Dividend: $2,117.50</div>
+            <div><i class="bi bi-percent"></i> Yield on Cost: 5.8%</div>
+          </div>
+          <a href="https://websim.ai/portfolios/high-yield" class="btn btn-primary">View Portfolio</a>
+        </div>
       </div>
-      <div class="col-md-4 mb-4">
-        card
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card portfolio-card">
+        <div class="card-body">
+          <h5 class="card-title">Dividend Aristocrats</h5>
+          <p class="card-text">A portfolio of companies with 25+ years of consecutive dividend increases.</p>
+          <div class="stats-row mb-3">
+            <div><i class="bi bi-piggy-bank"></i> Total Value: $68,920.50</div>
+            <div><i class="bi bi-cash-stack"></i> Annual Dividend: $1,861.85</div>
+            <div><i class="bi bi-percent"></i> Yield on Cost: 3.2%</div>
+          </div>
+          <a href="https://websim.ai/portfolios/aristocrats" class="btn btn-primary">View Portfolio</a>
+        </div>
       </div>
-      <div class="col-md-4 mb-4">
-        card
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card portfolio-card">
+        <div class="card-body">
+          <h5 class="card-title">Tech Dividend Portfolio</h5>
+          <p class="card-text">A portfolio focusing on dividend-paying technology companies.</p>
+          <div class="stats-row mb-3">
+            <div><i class="bi bi-piggy-bank"></i> Total Value: $35,680.25</div>
+            <div ><i class="bi bi-cash-stack" ></i> Annual Dividend: $642.24</div>
+            <div ><i class="bi bi-percent" ></i> Yield on Cost: 2.1%</div>
+          </div>
+          <a href="https://websim.ai/portfolios/tech-dividend" class="btn btn-primary" >View Portfolio</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4" >
+      <div class="card portfolio-card" >
+        <div class="card-body" >
+          <h5 class="card-title" >International Dividend</h5>
+          <p class="card-text" >A portfolio of international companies paying attractive dividends.</p>
+          <div class="stats-row mb-3" >
+            <div ><i class="bi bi-piggy-bank" ></i> Total Value: $28,750.00</div>
+            <div ><i class="bi bi-cash-stack" ></i> Annual Dividend: $1,150.00</div>
+            <div ><i class="bi bi-percent" ></i> Yield on Cost: 4.5%</div>
+          </div>
+          <a href="https://websim.ai/portfolios/international" class="btn btn-primary" >View Portfolio</a>
+        </div>
       </div>
     </div>
   </div>
