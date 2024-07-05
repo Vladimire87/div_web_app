@@ -1,36 +1,15 @@
 <% @portfolios.each do |portfolio| %>
   <div class="col-md-4 mb-4">
-    <div class="card portfolio-card rounded">
-      <div class="card-header align-content-center bg-info-subtle p-3">
-        <h5 class="fw-semibold fs-5 mb-0">
-          <%= portfolio.name %>
-        </h5>
-      </div>
-      <div class="card-body p-4">
-        <div class="chart-container">
-          chart
+    <div class="card portfolio-card">
+      <div class="card-body">
+        <h5 class="card-title">Growth Dividend Portfolio</h5>
+        <p class="card-text">A portfolio focused on stocks with strong dividend growth potential.</p>
+        <div class="stats-row mb-3">
+          <div><i class="bi bi-piggy-bank"></i> Total Value: $57,186.75</div>
+          <div><i class="bi bi-cash-stack"></i> Annual Dividend: $1,715.60</div>
+          <div><i class="bi bi-percent"></i> Yield on Cost: 3.9%</div>
         </div>
-        <div class="d-flex justify-content-between mb-2">
-          <span class="text-muted">Total Value:</span>
-          <span class="fw-bold">$52,680.75</span>
-        </div>
-        <div class="d-flex justify-content-between mb-2">
-          <span class="text-muted">Annual Dividend:</span>
-          <span class="fw-bold">$52,680.75</span>
-        </div>
-        <div class="d-flex justify-content-between mb-2">
-          <span class="text-muted">Yield on Cost:</span>
-          <span class="fw-bold">$52,680.75</span>
-        </div>
-        <div class="d-flex justify-content-between mb-2">
-          <span class="text-muted">Total Value:</span>
-          <span class="fw-bold">3.8%</span>
-        </div>
-        <div class="d-flex justify-content-between mt-3">
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-        </div>
+        <%= link_to "View Portfolio", portfolio_path(portfolio), class: "btn btn-primary" %>
       </div>
     </div>
   </div>
