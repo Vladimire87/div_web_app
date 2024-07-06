@@ -1,1 +1,16 @@
 <%= render "form", portfolio: @portfolio %>
+<%# Test nested form %>
+<%= form_with model: @portfolio do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <ul>
+    <%= form.fields_for :holdings do |holding_form| %>
+      <li>
+        <%= holding_form.label :ticker %>
+        <%= holding_form.text_field :ticker %>
+        <%= holding_form.number_field :shares, step: :any %>
+      </li>
+    <% end %>
+  </ul>
+  <%= form.submit %>
+<% end %>

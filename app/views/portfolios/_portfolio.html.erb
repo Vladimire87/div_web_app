@@ -44,6 +44,11 @@
       </div>
     </div>
   </div>
+  <% portfolio.holdings.each do |holding|%>
+    <%= holding.ticker %>
+    <%= holding.shares %>
+  <%end%>
+  <%= portfolio.holdings.sum(:shares) %>
   <div class="card" >
     <div class="card-body" >
       <h5 class="card-title mb-4" ><i class="bi bi-list-ul" ></i> Portfolio Holdings</h5>

@@ -13,6 +13,7 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/new
   def new
     @portfolio = current_user.portfolios.build
+    3.times { @portfolio.holdings.build }
   end
 
   # GET /portfolios/1/edit
@@ -65,6 +66,6 @@ class PortfoliosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def portfolio_params
-      params.require(:portfolio).permit(:name)
+      params.require(:portfolio).permit(:name, holdings_attributes: [:ticker, :shares])
     end
 end
