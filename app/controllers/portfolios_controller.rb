@@ -3,7 +3,7 @@ class PortfoliosController < ApplicationController
 
   # GET /portfolios or /portfolios.json
   def index
-    @portfolios = Portfolio.all
+    @portfolios = current_user.portfolios
   end
 
   # GET /portfolios/1 or /portfolios/1.json

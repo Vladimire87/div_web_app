@@ -3,13 +3,12 @@
     <div class="card portfolio-card">
       <div class="card-body">
         <h5 class="card-title"><%= portfolio.name %></h5>
-        <p class="card-text">A portfolio focused on stocks with strong dividend growth potential.</p>
         <div class="stats-row mb-3">
           <div><i class="bi bi-piggy-bank"></i> Total Value: $57,186.75</div>
           <div><i class="bi bi-cash-stack"></i> Annual Dividend: $1,715.60</div>
           <div><i class="bi bi-percent"></i> Yield on Cost: 3.9%</div>
         </div>
-        <%= link_to "View Portfolio", portfolio_path(portfolio), class: "btn btn-primary" %>
+        <%= link_to "View Portfolio", portfolio_path(portfolio), class: "btn btn-primary stretched-link" %>
       </div>
     </div>
   </div>

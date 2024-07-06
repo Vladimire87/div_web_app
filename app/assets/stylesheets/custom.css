@@ -111,9 +111,10 @@ body {
   background-color: #d90429;
   border-color: #d90429;
 }
-.portfolio-card {
+
+/* .portfolio-card {
   height: 100%;
-}
+} */
 .portfolio-card .card-body {
   display: flex;
   flex-direction: column;
