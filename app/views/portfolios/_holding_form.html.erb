@@ -1,0 +1,14 @@
+<div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
+  <div class="mb-3 row">
+    <div class="col-lg-7 col-4">
+      <%= f.text_field :ticker, class: "form-control" %>
+    </div>
+    <div class="d-flex col-lg-5 col-8">
+      <%= f.number_field :shares, step: :any, class: "form-control" %>
+      <button type="button" data-action="nested-form#remove" class="btn btn-sm">
+        <i class="bi-x-circle-fill text-danger"></i>
+      </button>
+    </div>
+  </div>
+  <%= f.hidden_field :_destroy %>
+</div>

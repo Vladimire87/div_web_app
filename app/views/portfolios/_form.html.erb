@@ -1,7 +1,7 @@
 <div class="container-xxl">
   <div class="container card col-sm-12 col-lg-6">
     <div class="card-body">
-      <%= form_with(model: portfolio) do |form| %>
+      <%= form_with(model: portfolio, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }) do |form| %>
         <% if portfolio.errors.any? %>
           <div style="color: red">
             <h2><%= pluralize(portfolio.errors.count, "error") %> prohibited this portfolio from being saved:</h2>
@@ -17,18 +17,29 @@
           <%= form.text_field :name, class: "form-control", required: true %>
         </div>
         <%= form.label :ticker, class: "form-label" %>
-        <%= form.fields_for :holdings do |holding_form| %>
-          <div class="mb-3 row">
-            <div class="col-8">
-              <%= holding_form.text_field :ticker, class: "form-control" %>
-            </div>
-            <div class="col-4">
-              <%= holding_form.number_field :shares, step: :any, class: "form-control" %>
-            </div>
-          </div>
+        <template data-nested-form-target="template">
+          <%= form.fields_for :holdings, Holding.new, child_index: 'NEW_RECORD' do |holding_fields| %>
+            <%= render "holding_form", f: holding_fields %>
+          <% end %>
+        </template>
+        <%= form.fields_for :holdings do |holding_fields| %>
+          <%= render "holding_form", f: holding_fields %>
         <% end %>
-        <%= form.submit class: "btn btn-primary" %>
+        <!-- Inserted elements will be injected before that target. -->
+        <div data-nested-form-target="target">
+        </div>
+        <div class="d-flex justify-content-between">
+          <div>
+            <button type="button" data-action="nested-form#add" class="btn btn-success"><i class="bi bi-plus-circle-fill"></i>Add</button>
+          </div>
+          <div>
+            <%= form.submit class: "btn btn-primary" %>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
+</div>
+<div class="mt-5 text-center">
+  <%= button_to "Delete", portfolio_path(portfolio), class: "btn btn-secondary btn-sm", method: :delete, data: { turbo_confirm: 'Are you shure? Portfolio will be lost'} %>
 </div>
