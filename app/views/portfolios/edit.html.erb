@@ -7,3 +7,6 @@
   </div>
 </div>
 <%= render "form", portfolio: @portfolio %>
+<div class="mt-5 text-center">
+  <%= button_to "Delete", portfolio_path(@portfolio), class: "btn btn-secondary btn-sm", method: :delete, data: { turbo_confirm: 'Are you sure? Portfolio will be lost'} %>
+</div>
