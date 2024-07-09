@@ -70,3 +70,4 @@ group :test do
 end
 
 gem "devise", "~> 4.9"
+gem 'finnhub_ruby', '~> 1.1.20', :git => 'https://github.com/Finnhub-Stock-API/finnhub-ruby.git'
