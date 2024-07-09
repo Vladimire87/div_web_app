@@ -1,7 +1,7 @@
 <div class="container-xxl mt-5" >
   <%= render "portfolios/notice" %>
   <div class="d-flex justify-content-between align-items-center mb-4" >
-    <h1 class="h2 fs-3" ><i class="bi bi-graph-up-arrow" ></i> Growth Dividend Portfolio</h1>
+    <h1 class="h2 fs-3" ><i class="bi bi-graph-up-arrow" ></i> <%= portfolio.name %></h1>
     <div >
       <%= link_to edit_portfolio_path, class: "btn btn-outline-primary" do %>
         <i class="bi bi-pencil" ></i> Edit Portfolio
@@ -50,103 +50,5 @@
     <%= holding.shares %>
   <%end%>
   <%= portfolio.holdings.sum(:shares) %>
-  <div class="card" >
-    <div class="card-body" >
-      <h5 class="card-title mb-4" ><i class="bi bi-list-ul" ></i> Portfolio Holdings</h5>
-      <div class="stock-list" >
-        <div class="stock-item" >
-          <div class="d-flex justify-content-between align-items-center mb-2" >
-            <div >
-              <span class="stock-name" >Microsoft Corporation</span>
-              <span class="stock-ticker ms-2" >MSFT</span>
-            </div>
-            <span class="badge bg-success" >+2.3%</span>
-          </div>
-          <div class="row stock-stats" >
-            <div class="col-md-3 col-6" >
-              <span class="text-muted" >Shares:</span> 25
-            </div>
-            <div class="col-md-3 col-6" >
-              <span class="text-muted" >Avg. Cost:</span> $245.32
-            </div>
-            <div class="col-md-3 col-6" >
-              <span class="text-muted" >Current Price:</span> $280.15
-            </div>
-            <div class="col-md-3 col-6" >
-              <span class="text-muted" >Total Value:</span> $7,003.75
-            </div>
-          </div>
-        </div>
-        <div class="stock-item" >
-          <div class="d-flex justify-content-between align-items-center mb-2" ">
-            <div >
-              <span class="stock-name" >Apple Inc.</span>
-              <span class="stock-ticker ms-2" >AAPL</span>
-            </div>
-            <span class="badge bg-success" >+1.8%</span>
-          </div>
-          <div class="row stock-stats" >
-            <div class="col-md-3 col-6" >
-              <span class="text-muted" >Shares:</span> 30
-            </div>
-            <div class="col-md-3 col-6" >
-              <span class="text-muted" >Avg. Cost:</span> $132.45
-            </div>
-            <div class="col-md-3 col-6" >
-              <span class="text-muted" >Current Price:</span> $150.20
-            </div>
-            <div class="col-md-3 col-6" >
-              <span class="text-muted" >Total Value:</span> $4,506.00
-            </div>
-          </div>
-        </div>
-        <div class="stock-item" >
-          <div class="d-flex justify-content-between align-items-center mb-2" >
-            <div >
-              <span class="stock-name" >Visa Inc.</span>
-              <span class="stock-ticker ms-2" >V</span>
-            </div>
-            <span class="badge bg-danger" >-0.5%</span>
-          </div>
-          <div class="row stock-stats" >
-            <div class="col-md-3 col-6" >
-              <span class="text-muted" >Shares:</span> 20
-            </div>
-            <div class="col-md-3 col-6" >
-              <span class="text-muted" >Avg. Cost:</span> $210.75
-            </div>
-            <div class="col-md-3 col-6" >
-              <span class="text-muted" >Current Price:</span> $225.30
-            </div>
-            <div class="col-md-3 col-6" >
-              <span class="text-muted" >Total Value:</span> $4,506.00
-            </div>
-          </div>
-        </div>
-        <div class="stock-item" >
-          <div class="d-flex justify-content-between align-items-center mb-2" ">
-            <div >
-              <span class="stock-name" >Tesla, Inc.</span>
-              <span class="stock-ticker ms-2" >TSLA</span>
-            </div>
-            <span class="badge bg-success" >+3.2%</span>
-          </div>
-          <div class="row stock-stats" >
-            <div class="col-md-3 col-6" >
-              <span class="text-muted" >Shares:</span> 5
-            </div>
-            <div class="col-md-3 col-6" >
-              <span class="text-muted" >Avg. Cost:</span> $650.00
-            </div>
-            <div class="col-md-3 col-6" >
-              <span class="text-muted" >Current Price:</span> $734.20
-            </div>
-            <div class="col-md-3 col-6" >
-              <span class="text-muted" >Total Value:</span> $3,671.00
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render "portfolios/holdings"%>
 </div>
