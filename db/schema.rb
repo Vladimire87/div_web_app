@@ -10,17 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_06_133553) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_10_174459) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "dividends", force: :cascade do |t|
+    t.bigint "stock_id", null: false
+    t.date "ex_dividend_date"
+    t.date "payment_date"
+    t.float "amount"
+    t.string "frequency"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stock_id"], name: "index_dividends_on_stock_id"
+  end
+
   create_table "holdings", force: :cascade do |t|
-    t.string "ticker"
     t.float "shares"
     t.bigint "portfolio_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "stock_id"
+    t.float "average_buy_price"
     t.index ["portfolio_id"], name: "index_holdings_on_portfolio_id"
+    t.index ["stock_id"], name: "index_holdings_on_stock_id"
   end
 
   create_table "portfolios", force: :cascade do |t|
@@ -29,6 +42,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_06_133553) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_portfolios_on_user_id"
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.string "ticker"
+    t.string "name"
+    t.float "current_price"
+    t.datetime "last_price_update"
+    t.datetime "last_dividend_update"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,6 +66,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_06_133553) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "dividends", "stocks"
   add_foreign_key "holdings", "portfolios"
+  add_foreign_key "holdings", "stocks"
   add_foreign_key "portfolios", "users"
 end
