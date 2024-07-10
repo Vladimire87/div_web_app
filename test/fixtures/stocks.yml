@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ticker: MyString
+  name: MyString
+  current_price: 1.5
+  last_price_update: 2024-07-10 20:38:04
+  last_dividend_update: 2024-07-10 20:38:04
+
+two:
+  ticker: MyString
+  name: MyString
+  current_price: 1.5
+  last_price_update: 2024-07-10 20:38:04
+  last_dividend_update: 2024-07-10 20:38:04
