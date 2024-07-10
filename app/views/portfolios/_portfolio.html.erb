@@ -46,7 +46,6 @@
     </div>
   </div>
   <% portfolio.holdings.each do |holding|%>
-    <%= holding.ticker %>
     <%= holding.shares %>
   <%end%>
   <%= portfolio.holdings.sum(:shares) %>

@@ -1,9 +1,35 @@
-<h1>New holding</h1>
+<%# <h1>New holding</h1>
 
 <%= render "form", holding: @holding %>
-
-<br>
+<%# <br>
 
 <div>
   <%= link_to "Back to holdings", holdings_path %>
-</div>
+<%# </div>  %>
+<%= form_with(model: [@portfolio, @holding], local: true) do |form| %>
+  <% if @holding.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@holding.errors.count, "error") %> prohibited this holding from being saved:</h2>
+      <ul>
+        <% @holding.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :stock_id %>
+    <%= form.collection_select :stock_id, @stocks, :id, :ticker, prompt: "Select a Stock" %>
+  </div>
+  <div class="field">
+    <%= form.label :shares %>
+    <%= form.number_field :shares %>
+  </div>
+  <div class="field">
+    <%= form.label :average_buy_price %>
+    <%= form.number_field :average_buy_price %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
