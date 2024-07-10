@@ -52,3 +52,9 @@
   <%= portfolio.holdings.sum(:shares) %>
   <%= render "portfolios/holdings"%>
 </div>
+<%= @finnhub_client %>
+<%= render @holdings %>
+<%  @holdings_profiles.each do |holding|%>
+  <h3><%= holding.name %></h3>
+  <p><%= holding.ticker %> </p>
+<% end %>

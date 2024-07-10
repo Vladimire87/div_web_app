@@ -1,5 +1,6 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: %i[ show edit update destroy ]
+  require 'finnhub_ruby'
 
   # GET /portfolios or /portfolios.json
   def index
@@ -8,6 +9,21 @@ class PortfoliosController < ApplicationController
 
   # GET /portfolios/1 or /portfolios/1.json
   def show
+    @portfolio = Portfolio.find(params[:id])
+    @holdings = @portfolio.holdings
+
+
+    FinnhubRuby.configure do |config|
+      config.api_key['api_key'] = ''
+    end
+
+    finnhub_client = FinnhubRuby::DefaultApi.new
+    @finnhub_client = finnhub_client.company_profile2({symbol: 'Invesco QQQ Trust Series 1'})
+
+    @holdings_profiles = @holdings.map do |holding|
+      finnhub_client.company_profile2({symbol: "#{holding.ticker}"})
+    end
+   
   end
 
   # GET /portfolios/new
